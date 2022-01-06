@@ -1,12 +1,24 @@
 import React from "react";
-import { Col, Row } from 'react-bootstrap'
+import { Navbar, Container } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStore } from "@fortawesome/free-solid-svg-icons";
+import { ShoppingCart } from "./ShoppingCart/ShoppingCart";
 
 export const HeaderApp = () => {
-    return (
-        <Row>
-            <Col xs={12}>
-            <div>Mini Ecommerce</div>
-            </Col>
-        </Row>
-    )
-}
+  return (
+    <>
+      <Navbar bg="dark" variant="dark" sticky="top">
+        <Container>
+          <Navbar.Brand href="#home" >
+            <FontAwesomeIcon
+              icon={faStore}
+              style={{ marginRight: "5px" }}
+            ></FontAwesomeIcon>
+            Mini Ecommerce
+          </Navbar.Brand>
+          <ShoppingCart/>
+        </Container>
+      </Navbar>
+    </>
+  );
+};
