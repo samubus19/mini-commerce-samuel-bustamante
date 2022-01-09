@@ -1,0 +1,8 @@
+.product-detail__img {
+    transition: transform .2s; 
+}
+
+.product-detail__img:hover {
+    transform: scale(1.2); 
+    overflow: hidden;
+}

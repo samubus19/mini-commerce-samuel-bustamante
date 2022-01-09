@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
-import '../../assets/css/style.css'
+import { Link } from "react-router-dom";
 
 export const ShoppingCart = () => {
 
@@ -41,18 +41,15 @@ export const ShoppingCart = () => {
             id="nav-dropdown-dark-example"
             menuVariant="light"
             align="end"
-            drop="down"
             title={
-              <div >
                   <FontAwesomeIcon icon={faShoppingCart} size="lg"></FontAwesomeIcon>
-              </div>
           } 
           >
             <NavDropdown.ItemText>Tu carrito de compras:</NavDropdown.ItemText>
             <NavDropdown.Divider />
               { productsCart?.map((product) => <ShoppingCartItem item={product} key={product.id}/>)}
             <NavDropdown.Divider />
-            <NavDropdown.Item >Total: <b> ${totalPrice} </b></NavDropdown.Item>
+            <NavDropdown.Item ><Link to={"/purchase"} style={{textDecoration:"none", color:"black"}}> Total: <b> ${totalPrice} </b></Link></NavDropdown.Item>
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>

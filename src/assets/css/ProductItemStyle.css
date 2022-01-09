@@ -1,0 +1,10 @@
+.product-item {
+    transition: transform .2s; 
+}
+
+.product-item:hover {
+    cursor: pointer;
+    -webkit-transform:scale(1.2);
+    transform:scale(1.2);
+    overflow:hidden;
+}

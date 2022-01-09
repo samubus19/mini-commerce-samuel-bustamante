@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import { Row } from 'react-bootstrap';
-import productsJson from '../../examples/products.json'
+import { getAllProducts } from "../../app/services/productsServices";
 import { Product } from "./Product";
 
 export const ListProducts = () => {
+    
+    const [products, setProducts] = useState([])
 
-    const products = productsJson.products;
+    useEffect(() => {
+        getAllProducts()
+            .then(data => setProducts(data))
+    }, [])
 
     return (
         <Row xs={1} md={4}>
