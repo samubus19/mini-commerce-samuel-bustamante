@@ -5,17 +5,17 @@ import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import db from "../../app/db/db";
 import { getProductById } from "../../app/services/productsServices";
 import "../../assets/css/ProductItemStyle.css";
+import { addItemToCart } from "../../redux/actions/cart/cartAction";
+import { useDispatch } from "react-redux";
 
 export const Product = ({ item }) => {
   const { title, image, price, id } = item;
 
-  const addProductToCart = ({ title, price, category, image }) => {
-    db.cart.add({
-      name: title,
-      price: price,
-      category: category,
-      image: image,
-    });
+  const dispatcher = useDispatch();
+
+  const addProductToCart = (item) => {
+    console.log(item)
+    dispatcher(addItemToCart(item))
   };
 
   const styles = {

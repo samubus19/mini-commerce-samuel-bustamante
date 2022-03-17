@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Dropdown } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { getAllCategories } from "../../app/services/productsServices";
+import { filterByCategory } from "../../redux/actions/products/productsActions";
 
 export const ProductFilter = ({history}) => {
 
     const [filters, setFilters] = useState([])
+
+    const dispatcher = useDispatch();
 
     useEffect(() => {
         getAllCategories()
@@ -12,7 +16,8 @@ export const ProductFilter = ({history}) => {
     }, [])
 
     const handleClickFilter = (filter) => {
-        history.push(`/products/${filter}`)
+        // history.push(`/products/${filter}`)
+        dispatcher(filterByCategory(filter));
     }
 
     return (

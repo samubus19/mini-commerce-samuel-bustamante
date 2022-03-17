@@ -1,19 +1,15 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
-import { Row } from 'react-bootstrap';
-import { getAllProducts } from "../../app/services/productsServices";
-import { Product } from "./Product";
+import React, { useEffect }         from "react";
+import { useState }                 from "react";
+import { Row }                      from 'react-bootstrap';
+import { useDispatch, useSelector } from "react-redux";
+import { Product }                  from "./Product";
+import { allProducts } from "../../redux/actions/products/productsActions";
 
 export const ListProducts = () => {
+
+    const products   = useSelector((state) => state.productsReducer.products);
     
-    const [products, setProducts] = useState([])
-
-    useEffect(() => {
-        getAllProducts()
-            .then(data => setProducts(data))
-    }, [])
-
-    return (
+     return (
         <Row xs={1} md={4}>
             {
                 products.map((product, index) => <Product key={index} item={product}/>)

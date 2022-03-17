@@ -3,7 +3,7 @@ import { NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export const ShoppingCartItem  = ({item}) => {
-    const {name, price, image, id} = item;
+    const {title, price, image, id} = item;
 
     const imgStyle = {
         width       :"4em",
@@ -21,7 +21,7 @@ export const ShoppingCartItem  = ({item}) => {
             <Link to={`/product/${id}`} style={itemStyle}>
                 <img src={image} style={imgStyle} alt="product-img"/>
                 <div>
-                    <p>{name}</p>
+                    <p>{title}</p>
                     <p><b>${price}</b></p>
                 </div>
             </Link>
